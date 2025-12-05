@@ -1,16 +1,12 @@
 services:
   spark:
-    image: apache/spark:3.5.7-python3
-    container_name: spark    
+    build:
+      context: .
+    container_name: spark
     volumes:
-      - ./jars:/opt/spark/work-dir
-      - ./app:/app      
-    command: [
-      "/opt/spark/bin/spark-submit", 
-      "--jars",
-      "aws-java-sdk-bundle-1.12.262.jar,hadoop-aws-3.3.4.jar",
-      "/app/test.py"
-    ]
+      - ./app:/app
+      - ./config:/config
+    command: ["/opt/spark/bin/spark-submit", "/app/test.py"]
 
   minio:
     image: minio/minio:RELEASE.2025-09-07T16-13-09Z 

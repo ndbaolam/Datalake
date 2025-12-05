@@ -1,12 +1,9 @@
-```sh
-helm repo add minio https://charts.min.io/
-helm repo update
-helm install minio minio/minio -f minio-values.yaml -n minio-system --create-namespace
+<a href="https://medium.com/@abdullahdurrani/working-with-minio-and-spark-8b4729daec6e">
+How to connect spark to minio
+</a>
 
-kubectl port-forward -n minio-system svc/minio 9123:9000
-```
+<a href="https://karlchris.github.io/data-engineering/projects/spark-iceberg"> Spark + Iceberg</a>
 
-# Enviroment
-- python 3.11.14
-- java 17.0.17
-- spark 4.0.1
+- Spark version: 3.5.7
+- Scala version 2.12.18
+- Java 11.0.27

@@ -1,0 +1,13 @@
+version: "3"
+services:
+  controller-1:
+    image: confluentinc/cp-kafka:7.5.0
+    hostname: controller-1
+    container_name: controller-1
+    environment:
+      KAFKA_PROCESS_ROLES: "controller"
+      KAFKA_NODE_ID: 1
+      KAFKA_LISTENERS: "CONTROLLER://controller-1:29092"
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@controller-1:29092"
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      CLUSTER_ID: "MkU3OEVBNTcwNTJENDM2Qk" #unique base64 UUID
