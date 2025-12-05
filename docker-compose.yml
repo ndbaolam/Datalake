@@ -1,6 +1,6 @@
 services:
   spark:
-    image: apache/spark:4.0.1-python3
+    image: apache/spark:3.5.7-python3
     container_name: spark    
     volumes:
       - ./jars:/opt/spark/work-dir
@@ -8,7 +8,7 @@ services:
     command: [
       "/opt/spark/bin/spark-submit", 
       "--jars",
-      "aws-java-sdk-bundle-1.12.500.jar,hadoop-aws-3.3.6.jar",
+      "aws-java-sdk-bundle-1.12.262.jar,hadoop-aws-3.3.4.jar",
       "/app/test.py"
     ]
 
