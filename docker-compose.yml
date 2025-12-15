@@ -3,10 +3,12 @@ services:
     build:
       context: .
     container_name: spark
-    volumes:
-      - ./app:/app
-      - ./config:/config
-    command: ["/opt/spark/bin/spark-submit", "/app/test.py"]
+    environment:
+      AWS_ACCESS_KEY_ID: console
+      AWS_SECRET_ACCESS_KEY: console123
+      ICEBERG_CATALOG: demo
+      ICEBERG_DB: db
+      ICEBERG_TABLE: persons
 
   minio:
     image: minio/minio:RELEASE.2025-09-07T16-13-09Z 
