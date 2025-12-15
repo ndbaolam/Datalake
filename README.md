@@ -1,10 +1,8 @@
-<a href="https://medium.com/@abdullahdurrani/working-with-minio-and-spark-8b4729daec6e">
-How to connect spark to minio
-</a>
-
-<a href="https://karlchris.github.io/data-engineering/projects/spark-iceberg"> Spark + Iceberg</a>
-
 ## Spark
+### Version
+- Spark: 3.5.7
+- Scala: 2.12.18
+- Java: 11.0.27
 ### `spark-submit` command
 ```sh
 Usage: spark-submit [options] <app jar | python file | R file> [app arguments]
@@ -97,10 +95,19 @@ Options:
   --queue QUEUE_NAME          The YARN queue to submit to (Default: "default").
 ```
 
-- Spark version: 3.5.7
-- Scala version 2.12.18
-- Java 11.0.27
-
+### Dependencies
+```
+jars/
+├── aws-java-sdk-bundle-1.12.262.jar
+├── commons-pool2-2.11.1.jar
+├── hadoop-aws-3.3.4.jar
+├── iceberg-spark-extensions-3.5_2.12-1.10.0.jar
+├── iceberg-spark-runtime-3.5_2.12-1.10.0.jar
+├── kafka-clients-3.9.1.jar
+├── spark-sql_2.12-3.5.7.jar
+├── spark-sql-kafka-0-10_2.12-3.5.7.jar
+└── spark-token-provider-kafka-0-10_2.12-3.5.7.jar
+```
 
 ## Kafka
 ### HA KRafk Architecture
@@ -117,3 +124,10 @@ broker1       node.id=4   :9092
 broker2       node.id=5   :9092
 broker3       node.id=6   :9092
 ```
+
+## References
+<a href="https://medium.com/@abdullahdurrani/working-with-minio-and-spark-8b4729daec6e">
+How to connect spark to minio
+</a>
+
+<a href="https://karlchris.github.io/data-engineering/projects/spark-iceberg"> Spark + Iceberg</a>

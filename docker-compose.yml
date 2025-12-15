@@ -9,6 +9,8 @@ services:
       ICEBERG_CATALOG: demo
       ICEBERG_DB: db
       ICEBERG_TABLE: persons
+    networks:
+      - datalake
 
   minio:
     image: minio/minio:RELEASE.2025-09-07T16-13-09Z 
@@ -22,6 +24,12 @@ services:
     command: server /data --console-address ":9001"
     volumes:
       - minio_data:/data
+    networks:
+      - datalake
 
 volumes:
   minio_data:
+
+networks:
+  datalake:
+    external: true

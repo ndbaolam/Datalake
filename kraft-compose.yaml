@@ -21,6 +21,8 @@ services:
 
     volumes:
       - controller1_data:/var/lib/kafka/data
+    networks:
+          - datalake
 
   controller2:
     image: confluentinc/cp-kafka:7.5.0
@@ -41,6 +43,8 @@ services:
 
     volumes:
       - controller2_data:/var/lib/kafka/data
+    networks:
+          - datalake
 
   controller3:
     image: confluentinc/cp-kafka:7.5.0
@@ -61,6 +65,8 @@ services:
 
     volumes:
       - controller3_data:/var/lib/kafka/data
+    networks:
+          - datalake
 
   # =======================
   # Brokers (3 nodes)
@@ -93,6 +99,8 @@ services:
 
     volumes:
       - broker1_data:/var/lib/kafka/data
+    networks:
+          - datalake
 
   broker2:
     image: confluentinc/cp-kafka:7.5.0
@@ -120,6 +128,8 @@ services:
 
     volumes:
       - broker2_data:/var/lib/kafka/data
+    networks:
+          - datalake
 
   broker3:
     image: confluentinc/cp-kafka:7.5.0
@@ -147,6 +157,8 @@ services:
 
     volumes:
       - broker3_data:/var/lib/kafka/data
+    networks:
+      - datalake
 
 volumes:
   controller1_data:
@@ -155,3 +167,7 @@ volumes:
   broker1_data:
   broker2_data:
   broker3_data:
+
+networks:
+  datalake:
+    external: true
